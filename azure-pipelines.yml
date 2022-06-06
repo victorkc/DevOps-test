@@ -19,3 +19,11 @@ steps:
   displayName: 'Run a multi-line script'
 
 - task: PublishBuildArtifacts@1
+
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'GFPS.Global.Digital.ConnectedSolutions.Dev(07139530-8c10-4c8d-b39e-2254751032ee)'
+    appType: 'webApp'
+    WebAppName: 'WebappVictorTest'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
